@@ -1,0 +1,39 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/new_schema
+    username: root
+    password: 166089@Tjc
+  security:
+    user:
+      name: jagadeesh
+      password: 123456221
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: none
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+logging:
+  level:
+    com.zaxxer.hikari: DEBUG
+    org.springframework.jdbc.datasource: DEBUG
+springdoc:
+  api-docs:
+    enabled: ${ENABLE_SWAGGER:true}
+  swagger-ui:
+    enabled: ${ENABLE_SWAGGER:true}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
